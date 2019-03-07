@@ -7,9 +7,11 @@ public class TestZipCodeWilmington {
     @Test
     public void hostLectureTest(){
         ZipCodeWilmington institution = ZipCodeWilmington.getInstance();
+        //Clearing the student/instructors state for test
         Students students = ZipCodeWilmington.getInstance().getStudents();
         students.removeAll();
         students.addAllStudents();
+
         Instructors instructors = ZipCodeWilmington.getInstance().getInstructors();
         instructors.removeAll();
         instructors.addAllInstructors();

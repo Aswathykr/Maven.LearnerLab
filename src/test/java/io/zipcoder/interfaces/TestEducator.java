@@ -9,9 +9,7 @@ public class TestEducator {
         Educator educator = Educator.Leon;
         boolean isInstance = educator instanceof Teacher;
         Assert.assertTrue(isInstance);
-
     }
-
 
     @Test
     public void testTeach(){
