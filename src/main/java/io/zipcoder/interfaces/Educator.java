@@ -8,20 +8,30 @@ public enum Educator implements Teacher{
     Frolian;
 
     private double timeWorked;
+    private Instructor instructor;
     Educator(){
-        Instructor instructor = new Instructor(ordinal());
+        this.instructor = new Instructor(ordinal()){
+            @Override
+            public void teach(Learner learner, double numberOfHours) {
+                super.teach(learner,numberOfHours);
+                timeWorked += numberOfHours;
+            }
+        };
+        instructor.setName(this.toString());
         Instructors.getInstance().add(instructor);
     }
 
     @Override
     public void teach(Learner learner, double numberOfHours) {
-        timeWorked +=numberOfHours;
-        Instructors.getInstance().getArray()[ordinal()].teach(learner,numberOfHours);
+        instructor.teach(learner,numberOfHours);
     }
 
     @Override
     public void lecture(Learner[] learners, double numberOfHours) {
-        timeWorked +=numberOfHours;
-        Instructors.getInstance().getArray()[ordinal()].lecture(learners,numberOfHours);
+       instructor.lecture(learners,numberOfHours);
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
     }
 }

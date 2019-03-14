@@ -6,6 +6,7 @@ public final class Students extends People<Student>{
     private Students(){
         addAllStudents();
     }
+
     public void addAllStudents() {
         int numberOfStudents = 25;
         for(int i = 0; i < numberOfStudents; i++) {
